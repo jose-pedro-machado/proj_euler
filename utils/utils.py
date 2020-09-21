@@ -25,6 +25,8 @@ def get_all_prime_divisors(number: int):
     Returns:
         list of int: contains all of the number prime divisors
     """
+
+    # TODO (José) Still not right. Test to find all divisors and all prime divisors for 10001 and find out
     prime_divisors = []
 
     for prime_divisor in range(2, math.floor(math.sqrt(number))):
@@ -67,3 +69,12 @@ def get_all_primes_until_something(number: int):
             primes.append(current_number)
 
     return primes
+
+if __name__ == "__main__":
+
+    number = 10001
+
+    a = get_all_prime_divisors(number=number)
+    n = get_all_divisors(number=number)
+
+    a = 0
