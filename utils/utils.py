@@ -23,16 +23,28 @@ def get_all_prime_divisors(number: int):
     Args:
         number (int): number to be extracted all its prime divisors
     Returns:
-        list of int: contains all of the number prime divisors
+        list of list int: contains all of the number prime divisors, with the prime in the first position and its
+            factor on the second
     """
 
-    # TODO (José) Still not right. Test to find all divisors and all prime divisors for 10001 and find out
     prime_divisors = []
 
-    for prime_divisor in range(2, math.floor(math.sqrt(number))):
-        if number % prime_divisor == 0:
-            if is_it_prime(number=prime_divisor):
-                prime_divisors.append(prime_divisor)
+    incrementing_divisor = 2
+    # loop to keep dividing the number
+    while number != 1:
+
+        if number % incrementing_divisor == 0:
+            current_divisor_factor = [incrementing_divisor, 0]
+
+            # while the number can be divided by the divisor, keep dividing
+            while number % incrementing_divisor == 0:
+                number = number / incrementing_divisor
+                current_divisor_factor[1] += 1
+
+            prime_divisors.append(current_divisor_factor)
+
+        incrementing_divisor += 1
+
     return prime_divisors
 
 
@@ -72,7 +84,7 @@ def get_all_primes_until_something(number: int):
 
 if __name__ == "__main__":
 
-    number = 10001
+    number = 256
 
     a = get_all_prime_divisors(number=number)
     n = get_all_divisors(number=number)

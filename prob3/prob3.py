@@ -7,4 +7,4 @@ if __name__ == "__main__":
     something = 600851475143
 
     divisors = get_all_prime_divisors(number=something)
-    print("Max divisor of " + str(something) + " is: " + str(divisors[-1]))
+    print("Max divisor of " + str(something) + " is: " + str(divisors[-1][0]))
