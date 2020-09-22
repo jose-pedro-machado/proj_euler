@@ -81,12 +81,3 @@ def get_all_primes_until_something(number: int):
             primes.append(current_number)
 
     return primes
-
-if __name__ == "__main__":
-
-    number = 256
-
-    a = get_all_prime_divisors(number=number)
-    n = get_all_divisors(number=number)
-
-    a = 0
