@@ -81,3 +81,21 @@ def get_all_primes_until_something(number: int):
             primes.append(current_number)
 
     return primes
+
+def is_palindrome(number: int):
+    """
+
+    Args:
+        number (int): number to be testes palindrome
+    Returns:
+        bool: indication of palidrome
+    """
+
+    str_num = str(number)
+    num_iterations = len(str_num) // 2
+
+    for pos in range(num_iterations):
+        if str_num[pos] != str_num[-pos - 1]:
+            return False
+
+    return True
