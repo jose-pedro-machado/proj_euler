@@ -72,7 +72,7 @@ def is_it_prime(number: int):
 
 
 def get_all_primes_until_something(number: int):
-    """ Returns all the primes until the
+    """ Returns all the primes until number
 
     Args:
         number (int): ceiling to all primes vector
