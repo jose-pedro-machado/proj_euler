@@ -18,11 +18,10 @@ if __name__ == "__main__":
     for decrease_a in range(1, multiple_a - multiple_a // 10):
         for decrease_b in range(1, multiple_b - multiple_b // 10):
             testing_number = (multiple_a - decrease_a) * (multiple_b - decrease_b)
-            if is_palindrome(number=testing_number):
-                if testing_number > biggest_palindromes["palindrome"]:
-                    biggest_palindromes = {"palindrome": testing_number,
-                                           "multiple_a": multiple_a - decrease_a,
-                                           "multiple_b": multiple_b - decrease_b}
+            if is_palindrome(number=testing_number) and testing_number > biggest_palindromes["palindrome"]:
+                biggest_palindromes = {"palindrome": testing_number,
+                                       "multiple_a": multiple_a - decrease_a,
+                                       "multiple_b": multiple_b - decrease_b}
 
-    print("Biggest palindrome, made by a product of 2 3-digit numbers (" + str(biggest_palindromes["multiple_a"]) +
+    print("\n\nBiggest palindrome, made by a product of 2 3-digit numbers (" + str(biggest_palindromes["multiple_a"]) +
           " and " + str(biggest_palindromes["multiple_b"]) + "): " + str(biggest_palindromes['palindrome']))

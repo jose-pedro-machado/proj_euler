@@ -82,6 +82,7 @@ def get_all_primes_until_something(number: int):
 
     return primes
 
+
 def is_palindrome(number: int):
     """
 
