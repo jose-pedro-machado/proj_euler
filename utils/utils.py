@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 
 def get_all_divisors(number: int):
@@ -10,9 +11,13 @@ def get_all_divisors(number: int):
         list of int: contains all of the number divisors
     """
     divisors = []
-    for divisor in range(2, math.ceil(number / 2) + 1):
+    for divisor in range(2, math.floor(math.sqrt(number)) + 1):
         if number % divisor == 0:
             divisors.append(divisor)
+
+    aux_divisors = divisors.copy()
+    for index in range(len(aux_divisors)):
+        divisors.append(number // aux_divisors[-index-1])
 
     return divisors
 
@@ -56,8 +61,9 @@ def is_it_prime(number: int):
     Returns:
          bool: indicates if it is prime
     """
-    # All the possible divisors of a number are between 2 and its square root
-    for possible_divisor in range(2, math.ceil(math.sqrt(number))):
+    # All the possible divisors of a number are between 2 and its
+    # square root + 1 (necessary because range(x, y) is [x,y[. Ex: if number is 9, 3 must be checked
+    for possible_divisor in range(2, math.floor(math.sqrt(number) + 1)):
         if number % possible_divisor == 0:
             return False
         else:
